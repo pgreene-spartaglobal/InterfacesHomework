@@ -34,6 +34,11 @@ namespace InterfacesHomework
         }
     }
 
+    class Comparison
+    {
+        public string Name { get; set; }
+    }
+
     public interface ICompareByName{
 	    int CompareByName();
     }
