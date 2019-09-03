@@ -15,13 +15,13 @@ namespace InterfacesHomework
             var b = new Item();
             a.Name = "Bob";
             b.Name = "Carly";
-            //Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a < b returns -1
+            Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a < b returns -1
             a.Name = "Carly";
             b.Name = "Carly";
-           // Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a == b returns 0
+            Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a == b returns 0
             a.Name = "Edward";
             b.Name = "Carly";
-           // Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a > b returns 1
+            Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a > b returns 1
 
             var c = new Comparison();
             var d = new Comparison();
@@ -37,6 +37,17 @@ namespace InterfacesHomework
             d.Name = "Carly";
             Console.WriteLine("{0} compared to {1} is {2}", c.Name, d.Name, c.CompareByName(d)); // c > d returns 1
             Console.WriteLine("{0} compared to {1} is {2}", c.Name, d.Name, c.CompareByLength(d)); // c > d returns 1
+
+            Comparison firstComparison = new Comparison();
+            Comparison secondComparison = new Comparison();
+
+            Console.WriteLine("Please enter your first string");
+            firstComparison.Name = Console.ReadLine();
+            Console.WriteLine("Please enter your second string");
+            secondComparison.Name = Console.ReadLine();
+
+            Console.WriteLine("{0} compared to {1} is {2}", firstComparison.Name, secondComparison.Name, firstComparison.CompareByName(secondComparison)); 
+            Console.WriteLine("{0} compared to {1} is {2}", firstComparison.Name, secondComparison.Name, firstComparison.CompareByLength(secondComparison)); 
         }
     }
     public class Item : IComparable
