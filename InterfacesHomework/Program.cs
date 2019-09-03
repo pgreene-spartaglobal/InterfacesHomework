@@ -40,15 +40,18 @@ namespace InterfacesHomework
 
             Comparison firstComparison = new Comparison();
             Comparison secondComparison = new Comparison();
+            Display outputDisplay = new Display();
 
             Console.WriteLine("Please enter your first string");
             firstComparison.Name = Console.ReadLine();
             Console.WriteLine("Please enter your second string");
             secondComparison.Name = Console.ReadLine();
 
-            Console.WriteLine("{0} compared to {1} is {2}", firstComparison.Name, secondComparison.Name, firstComparison.CompareByName(secondComparison)); 
-            Console.WriteLine("{0} compared to {1} is {2}", firstComparison.Name, secondComparison.Name, firstComparison.CompareByLength(secondComparison)); 
+            Console.WriteLine("{0} {1} {2} alphabetically", firstComparison.Name, outputDisplay.DisplayOutput(firstComparison.CompareByName(secondComparison)), secondComparison.Name); 
+            Console.WriteLine("{0} {1} length compared to {2} ", firstComparison.Name, outputDisplay.DisplayOutput(firstComparison.CompareByLength(secondComparison)),secondComparison.Name); 
         }
+
+        
     }
     public class Item : IComparable
     {
@@ -58,6 +61,27 @@ namespace InterfacesHomework
         {
             Item that = o as Item;
             return this.Name.CompareTo(that.Name);
+        }
+    }
+
+    class Display
+    {
+        public string DisplayOutput(int value)
+        {
+            switch (value)
+            {
+                case -1:
+                    return "is below";
+
+                case 0:
+                    return "is the same as";
+
+                case 1:
+                    return "is above";
+
+                default:
+                    return "invalid";
+            }
         }
     }
 
@@ -78,7 +102,7 @@ namespace InterfacesHomework
         {
             Comparison that = o as Comparison;
             return string.Compare(this.Name, that.Name);
-        }
+        }        
     }
 
     interface ICompareByName
