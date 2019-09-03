@@ -33,4 +33,11 @@ namespace InterfacesHomework
             return this.Name.CompareTo(that.Name);
         }
     }
+
+    public interface ICompareByName{
+	    int CompareByName();
+    }
+    public interface ICompareByLength{
+	    int CompareByLength();
+    }
 }
