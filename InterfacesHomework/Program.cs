@@ -21,6 +21,12 @@ namespace InterfacesHomework
             a.Name = "Edward";
             b.Name = "Carly";
             Console.WriteLine("{0} compared to {1} is {2}", a.Name, b.Name, a.CompareTo(b)); // a > b returns 1
+
+            var c = new Comparison();
+            var d = new Comparison();
+            c.Name = "Bob";
+            d.Name = "Carly";
+            Console.WriteLine("{0} compared to {1} is {2}", c.Name, d.Name, c.CompareByName(d)); // c < d returns -1
         }
     }
     public class Item : IComparable
@@ -34,15 +40,29 @@ namespace InterfacesHomework
         }
     }
 
-    class Comparison
+    class Comparison : ICompareByName, ICompareByLength
     {
         public string Name { get; set; }
+
+        public int CompareByLength(object o)
+        {
+            return 0;
+        }
+
+        // compares by alphabetical order (string.Compare() method)
+        public int CompareByName(object o)
+        {
+            Comparison that = o as Comparison;
+            return String.Compare(this.Name, that.Name);
+        }
     }
 
-    public interface ICompareByName{
-	    int CompareByName();
+    interface ICompareByName
+    {
+        int CompareByName(object o);
     }
-    public interface ICompareByLength{
-	    int CompareByLength();
+    interface ICompareByLength
+    {
+        int CompareByLength(object o);
     }
 }
