@@ -11,6 +11,22 @@ namespace InterfacesHomework
     {
         static void Main(string[] args)
         {
+            Comparison firstComparison = new Comparison();
+            Comparison secondComparison = new Comparison();
+            Display outputDisplay = new Display();
+
+            Console.WriteLine("Please enter your first string");
+            firstComparison.Name = Console.ReadLine();
+            Console.WriteLine("Please enter your second string");
+            secondComparison.Name = Console.ReadLine();
+
+            Console.WriteLine("{0} {1} {2} alphabetically", firstComparison.Name, outputDisplay.DisplayOutput(firstComparison.CompareByName(secondComparison)), secondComparison.Name); 
+            Console.WriteLine("{0} {1} length compared to {2}", firstComparison.Name, outputDisplay.DisplayOutput(firstComparison.CompareByLength(secondComparison)),secondComparison.Name); 
+        }
+
+        // Step through to understand what is happening
+        static void Lab1()
+        {
             var a = new Item();
             var b = new Item();
             a.Name = "Bob";
@@ -37,21 +53,7 @@ namespace InterfacesHomework
             d.Name = "Carly";
             Console.WriteLine("{0} compared to {1} is {2}", c.Name, d.Name, c.CompareByName(d)); // c > d returns 1
             Console.WriteLine("{0} compared to {1} is {2}", c.Name, d.Name, c.CompareByLength(d)); // c > d returns 1
-
-            Comparison firstComparison = new Comparison();
-            Comparison secondComparison = new Comparison();
-            Display outputDisplay = new Display();
-
-            Console.WriteLine("Please enter your first string");
-            firstComparison.Name = Console.ReadLine();
-            Console.WriteLine("Please enter your second string");
-            secondComparison.Name = Console.ReadLine();
-
-            Console.WriteLine("{0} {1} {2} alphabetically", firstComparison.Name, outputDisplay.DisplayOutput(firstComparison.CompareByName(secondComparison)), secondComparison.Name); 
-            Console.WriteLine("{0} {1} length compared to {2} ", firstComparison.Name, outputDisplay.DisplayOutput(firstComparison.CompareByLength(secondComparison)),secondComparison.Name); 
         }
-
-        
     }
     public class Item : IComparable
     {
